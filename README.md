@@ -2,7 +2,8 @@
 serializibility is the effect of a concurrent schedule having the same effect as
 SOME serial schedule for ALL initial values of data (transactions)
 
-conflict serialiazbility is easier to computer, serializibility / view serialiazbility is np hard
+conflict serialiazbility is easier to compute(O(x^2) to check schedule, O(V+E) for topSort, hence O(N^2)), serializibility / view serialiazbility is np hard
+
 
 # Steps for Conflict Serialiazbility
 - Transaction input : input(transactions, data, schedule)
@@ -19,7 +20,7 @@ T2:W(B);
 T3:W(A);
 T1:R(A);
 
-- Check for conflicting pairs (RW,WR,WW on same data in different transactions
+- Check for conflicting pairs (RW,WR,WW) on same data in different transactions
   (can be consecutive / non consecutive)
 - Make precedence graph based on conflicting pairs
     - If graph acyclic : CS, is it contains Cycle : print the cycle and let it know its not CS
